@@ -1,0 +1,150 @@
+{
+	"title": "Club Members",
+	"list":
+		[
+		  {
+				"id": 1,
+				"title": "member",
+				"name": "Adnan Rashied",
+				"credits": 0
+			}
+			{
+				"id": 2,
+				"title": "member",
+				"name": "Andrew Konik",
+				"credits": 0
+			}
+			{
+				"id": 3,
+				"title": "member",
+				"name": "Brooklyn Crowe",
+				"credits": 0
+			}
+			{
+				"id": 4,
+				"name": "Charlie Liu",
+				"title": "Treasurer",
+				"credits": 0
+			}
+			{
+				"id": 5,
+				"title": "member",
+				"name": "Daniel Lopez",
+				"credits": 0
+			}
+			{
+				"id": 6,
+				"title": "member",
+				"name": "Hardi Dadhaniya",
+				"credits": 0
+			}
+			{
+				"id": 7,
+				"title": "President",
+				"name": "Harshit Joshi",
+			}
+			{
+				"id": 8,
+				"title": "member",
+				"name": "Heminbhai Patel",
+				"credits": 0
+			}
+			{
+				"id": 9,
+				"title": "Advisor",
+				"name": "Ishan Vaidya",
+				"credits": 0
+			}
+			{
+				"id": 10,
+				"title": "member",
+				"name": "Jack Leidelmeijer",
+				"credits": 0
+			}
+			{
+				"id": 11,
+				"title": "member",
+				"name": "Jay Patel",
+				"credits": 0
+			}
+			{
+				"id": 12,
+				"title": "Vice President",
+				"name": "Jennifer Cox",
+				"credits": 0
+			}
+			{
+				"id": 13,
+				"title": "Advisor",
+				"name": "Joseph Eyles",
+				"credits": 0
+			}
+			{
+				"id": 14,
+				"title": "member",
+				"name": "Karim Rattani",
+				"credits": 0
+			}
+			{
+				"id": 15,
+				"title": "member",
+				"name": "Mac Erickson",
+				"credits": 0
+			}
+			{
+				"id": 16,
+				"title": "member",
+				"name": "Matt Metcalfe",
+				"credits": 0
+			}
+			{
+				"id": 17,
+				"title": "member",
+				"name": "Parth Patel",
+				"credits": 0
+			}
+			{
+				"id": 18,
+				"title": "member",
+				"name": "Rakeem Durand",
+				"credits": 0
+			}
+			{
+				"id": 19,
+				"title": "member",
+				"name": "Roger Slattery",
+				"credits": 0
+			}
+			{
+				"id": 20,
+				"title": "member",
+				"name": "Samuel Futral",
+				"credits": 0
+			}
+			{
+				"id": 21,
+				"title": "Marketing Officer",
+				"name": "Soham Abhijit Bapat",
+				"credits": 0
+			}
+			{
+				"id": 22,
+				"title": "member",
+				"name": "Sonngy Santana",
+				"credits": 0
+			}
+			{
+				"id": 23,
+				"title": "member",
+				"name": "Vincent Gordy",
+				"credits": 0
+			}
+			{
+				"id": 24,
+				"title": "member",
+				"name": "Willie Peoples",
+				"credits": 0
+			}
+		]
+	}
+}
