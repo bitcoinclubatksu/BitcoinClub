@@ -1,0 +1,16 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "simple script to scrape members",
+  "main": "fetchMembers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harshit Joshi",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^12.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
