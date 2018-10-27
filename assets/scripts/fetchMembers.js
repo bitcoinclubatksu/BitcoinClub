@@ -5,7 +5,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 async function extract() {
-  const options = {
+  const extractOptions = {
     method: 'GET',
     uri: 'https://cas.kennesaw.edu/cas/login?service=https://federation.campuslabs.com/auth/signin/',
     headers: {
@@ -14,46 +14,48 @@ async function extract() {
     json: true
   };
   try {
-    const data = await request(options);
+    const data = await request(extractOptions);
     if (!data) {
       throw new Error('no data recieved');
     }
-
     const dom = new JSDOM(data);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children);
-
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[0].value);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[0].name);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[1].value);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[1].name);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[2].value);
-    // console.log(dom.window.document.getElementsByClassName("row btn-row")[0].children[2].name);
-
-
-    const test = dom.window.document.getElementsByClassName("row btn-row")[0].children;
-    const formValues = Object.values(test).reduce((result, item) => {
+    const btnObj = dom.window.document.getElementsByClassName("row btn-row")[0].children;
+    const formValues = Object.values(btnObj).reduce((result, item) => {
       result[item.name] = item.value;
       return result; 
     }, {});
-
-    // return data;
+    return formValues;
   } catch (e) {
     throw new Error(e.message);
   }
 }
 
 async function fetchMembers() {
-
-  const formData = {
-    username: 'hjoshi2',
-    password: 'pwd',
-    submit: ',',
-    execution: '',
-    // lt,
-    // _eventId
-  }
   
-  return await extract();
+  try {
+    const formValues = await extract();
+    const formData = {
+      username: 'hjoshi2',
+      password: 'pwd',
+      lt: formValues.lt,
+      execution: formValues.execution,
+      _eventId: formValues._eventId,
+      submit: formValues.submit
+    };
+    const options = {
+      method: 'POST',
+      uri: 'https://owllife.kennesaw.edu/actioncenter/organization/bitcoinclub/roster/roster/officers?_=1539108612236',
+      formData: formData,
+      headers: {
+        connection: 'Keep-Alive'
+      },
+      json: true
+    };
+    const data = await request(options);
+    return data;
+  } catch(e) {
+    throw new Error(e.message);
+  }
 }
 
 fetchMembers()
