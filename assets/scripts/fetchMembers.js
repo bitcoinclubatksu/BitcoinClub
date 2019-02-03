@@ -3,6 +3,7 @@
 const request = require('request-promise');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+let cookieJar = request.jar();
 
 async function extract() {
   const extractOptions = {
@@ -10,8 +11,7 @@ async function extract() {
     uri: 'https://cas.kennesaw.edu/cas/login?service=https://federation.campuslabs.com/auth/signin/',
     headers: {
       connection: 'Keep-Alive'
-    },
-    json: true
+    }
   };
   try {
     const data = await request(extractOptions);
@@ -30,7 +30,7 @@ async function extract() {
   }
 }
 
-async function fetchMembers() {
+async function login() {
   
   try {
     const formValues = await extract();
@@ -44,7 +44,7 @@ async function fetchMembers() {
     };
     const options = {
       method: 'POST',
-      uri: 'https://owllife.kennesaw.edu/actioncenter/organization/bitcoinclub/roster/roster/officers?_=1539108612236',
+      uri: 'https://cas.kennesaw.edu/cas/login?service=https://federation.campuslabs.com/auth/signin/',
       formData: formData,
       headers: {
         connection: 'Keep-Alive'
@@ -58,7 +58,29 @@ async function fetchMembers() {
   }
 }
 
-fetchMembers()
+async function fetchMembers() {
+
+  try {
+    await login();
+    const fetchOptions = {
+      method: 'GET',
+      uri: 'https://owllife.kennesaw.edu/actioncenter/organization/bitcoinclub/roster/roster/officers?_=1539108612236',
+      headers: {
+        connection: 'Keep-Alive'
+      },
+      jar: cookieJar,
+      // resolvewithFullRespone: true,
+      json: true
+    };
+    const members = await request(fetchOptions);
+    console.log(cookieJar);
+    return members;
+  } catch (e) {
+    throw new Error(e.message);
+  }
+}
+
+login()
   .then(res => console.log(res))
   .catch(err => console.error(err));
 
