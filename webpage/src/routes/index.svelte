@@ -45,7 +45,7 @@
     import getBTCPrice from './_btc.js';
     import Icon from 'svelte-awesome';
     import { faCog } from '@fortawesome/free-solid-svg-icons';
-    import { faGithub } from '@fortawesome/free-brands-svg-icons';
+    //import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
     let volumeUSD = "...waiting",
 	 changePercent24 = "...waiting",
@@ -97,7 +97,8 @@
 
         <div class="col-sm-6 col-12 py-2">
             <br><br><br><br>
-			<h2 class="row d-flex align-items-center text-left">We strive to promote currently emerging innovations related to the digital economy. The mindset of this organization as a whole is to gain knowledge and help build skillset to appreciate the digital economy technologies. We wish to share and promote digital economy solutions through collaborative and peer learning efforts. The mission of this organization is to help students understand and develop an appreciation for <div id="cc">cryptocurrencies</div>,&nbsp;<div id="crypto">cryptography</div>,&nbsp;<div id="sec">security</div>,&nbsp;<div id="priv">privacy</div>,&nbsp;and <div id="dig">the digital economy</div>.</h2>
+			<h2 class="row d-flex align-items-center text-left">We strive to promote currently emerging innovations related to the digital economy. The mindset of this organization as a whole is to gain knowledge and help build skillset to appreciate the digital economy technologies. We wish to share and promote digital economy solutions through collaborative and peer learning efforts. The mission of this organization is to help students understand and develop an appreciation for
+            <span id="cc">cryptocurrencies</span>,&nbsp;<span id="crypto">cryptography</span>,&nbsp;<span id="sec">security</span>,&nbsp;<span id="priv">privacy</span>,&nbsp;and&nbsp<span id="dig"> the digital economy</span>.</h2>
             <br><br>
             <Icon data={faCog} spin/>
             <small>We are currently working on updating the website meanwhile check out the About section!</small>
