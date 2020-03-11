@@ -85,9 +85,9 @@
 
         <div class="col-sm-6 col-12 d-flex flex-column py-2 align-items-start" id="left">
 		<h1>Bitcoin Club at KSU!</h1>
-		<figure on:mouseenter={waiting} on:mouseleave={async () => {await fetchPrice()}}>
+		<figure on:mouseenter={waiting} on:touchstart={waiting} on:mouseleave={async () => {await fetchPrice();}} on:touchend={async () => {await fetchPrice();}}>
 			<img class="spin" alt='Bitcoin Club' src='bitcoin_shine.gif'/>
-            <figcaption>Hover over the image for an update.</figcaption>
+            <figcaption>Hover/Click over the image for an update.</figcaption>
 		</figure>
 			<h3 class="flex-row col align-content-center p-2">Price: {currentRate}</h3>
 			<h3 class="flex-row col align-content-center p-2 ">Volume(24Hr): {volumeUSD}</h3>
