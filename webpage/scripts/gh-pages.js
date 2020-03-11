@@ -1,7 +1,7 @@
-var ghpages = require('gh-pages');
+const ghpages = require('gh-pages');
 
 ghpages.publish(
-    '__sapper__/export',
+    '__sapper__/export/',
     {
         branch: 'gh-pages',
         repo: 'git@github.com:HarshitJoshi/BitcoinClub.git',
