@@ -7,26 +7,21 @@
 
 <style>
 	main {
-		position: relative;
         max-width: initial;
-        padding: 1em;
 		box-sizing: border-box;
-        flex: 1 0 auto;
 	}
     
     .gradient {
-        min-height: 100vh;
-        background-color: #d9e4f5;
-        background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+        min-height: 78vh;
+        background-image: radial-gradient(70% 70% at 50% 100%,#e8e8e8 0,#fafafa 100%);
     }
+
 </style>
 
 <Nav {segment}/>
 <div class="d-flex flex-column">
-    <div class="gradient">
-        <main>
-    	    <slot></slot>
-        </main>
-    </div>
-    <Footer/>
+    <main class="gradient flex-grow-1 d-flex flex-column align-items-center">
+        <slot></slot>
+    </main>
+    <Footer />
 </div>

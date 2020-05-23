@@ -51,8 +51,11 @@
 </style>
 
 <nav>
-	<ul>
-		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
-		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='https://owllife.kennesaw.edu/organization/bitcoinclub' target='_blank'>about</a></li>
+	<ul class="d-flex p-2">
+        <li><figure>
+            <img alt='Bitcoin Club at KSU' height="80" width="80" src='club_logo.png'/>
+        </figure></li>
+		<li class="align-self-center"><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
+		<li class="align-self-center"><a aria-current='{segment === "about" ? "page" : undefined}' href='https://owllife.kennesaw.edu/organization/bitcoinclub' target='_blank'>about</a></li>
 	</ul>
 </nav>

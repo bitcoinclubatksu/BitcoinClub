@@ -1,25 +1,48 @@
 <style>
 
-	h1, h2, h3, figure {
+	h1, h3, figure {
 		text-align: center;
 		margin: 0 auto;
 	}
 
 	h1 {
-		color: #ff3e00;
-		font-size: 4em;
-		text-transform: uppercase;
-		font-weight: 300;
+		margin: 0;
+		--size: 4.5rem;
+		--size-t: 4rem;
+		--size-m: 2.5rem;
+		line-height: 1.01em;
+		letter-spacing: -.049375rem;
+		font-size: var(--size);
+		font-weight: 700;
 	}
 
-	#cc, #crypto, #sec, #priv, #dig {
-		display: initial;
-		color: #ff3e00;	
-	}
+    p {
+        color: rgb(110, 120, 152);
+        font-size: 24px;
+        font-weight: normal;
+        letter-spacing: -0.2px;
+        line-height: 32px;
+    }
+
+    #left {
+        box-shadow: 2px 20px 50px 0 rgba(0,0,0,.07);
+        border-radius: 18px;
+    }
+    
+    #right {
+        box-shadow: 2px 20px 50px 0 rgba(0,0,0,.07);
+        border-radius: 18px;
+    }
 
     #change {
         color: var(--color);
 		display: initial;
+    }
+
+    p highlight {
+        font-weight: 500;
+        background: rgba(0, 0, 0, 0) linear-gradient(103.97deg, rgb(249, 142, 0) -2.95%, rgb(255, 188, 0) 100%) repeat scroll 0% 0% padding-box text;
+        -webkit-text-fill-color: transparent;
     }
 
     .spin {
@@ -45,7 +68,6 @@
     import getBTCPrice from './_btc.js';
     import Icon from 'svelte-awesome';
     import { faCog } from '@fortawesome/free-solid-svg-icons';
-    //import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
     let volumeUSD = "...waiting",
 	 changePercent24 = "...waiting",
@@ -80,28 +102,29 @@
 	<title>Bitcoin Club at KSU</title>
 </svelte:head>
 
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col-sm-6 col-12 d-flex flex-column py-2 align-items-start" id="left">
-		<h1>Bitcoin Club at KSU!</h1>
-		<figure on:mouseenter={waiting} on:touchstart={waiting} on:mouseleave={async () => {await fetchPrice();}} on:touchend={async () => {await fetchPrice();}}>
-			<img class="spin" alt='Bitcoin Club' src='bitcoin_shine.gif'/>
-            <figcaption>Hover/Click over the image for an update.</figcaption>
-		</figure>
-			<h3 class="flex-row col align-content-center p-2">Price: {currentRate}</h3>
-			<h3 class="flex-row col align-content-center p-2 ">Volume(24Hr): {volumeUSD}</h3>
-			<h3 class="flex-row col align-content-center p-2 ">Change(24Hr): <div id="change" use:cssVars="{percentChange}">{changePercent24}%</div></h3>
+<div class="container m-3">
+    <div class="row justify-content-center">
+       
+		<div class="col-3-auto d-flex flex-column justify-content-center m-3 p-2 bg-white" id="left">
+		    <figure class="flex-row col flex-grow-0 align-content-center p-2" on:mouseenter={waiting} on:touchstart={waiting} on:mouseleave={async () => {await fetchPrice();}} on:touchend={async () => {await fetchPrice();}}>
+		    	<img class="spin" alt='Bitcoin Club' src='bitcoin_shine.gif'/>
+                <figcaption>Hover/Click over the image for an update.</figcaption>
+		    </figure>
+		    	<h3 class="flex-row col flex-grow-0 align-content-center p-2">Price: {currentRate}</h3>
+		    	<h3 class="flex-row col flex-grow-0 align-content-center p-2 ">Volume(24Hr): {volumeUSD}</h3>
+		    	<h3 class="flex-row col flex-grow-0 align-content-center p-2 ">Change(24Hr): <div id="change" use:cssVars="{percentChange}">{changePercent24}%</div></h3>
     	</div>
-
-
-        <div class="col-sm-6 col-12 py-2">
-            <br><br><br><br>
-			<h2 class="row d-flex align-items-center text-left">We strive to promote currently emerging innovations related to the digital economy. The mindset of this organization as a whole is to gain knowledge and help build skillset to appreciate the digital economy technologies. We wish to share and promote digital economy solutions through collaborative and peer learning efforts. The mission of this organization is to help students understand and develop an appreciation for
-            <span id="cc">cryptocurrencies</span>,&nbsp;<span id="crypto">cryptography</span>,&nbsp;<span id="sec">security</span>,&nbsp;<span id="priv">privacy</span>,&nbsp;and&nbsp<span id="dig"> the digital economy</span>.</h2>
+        
+        
+        <div class="col-md-7 d-flex flex-column justify-content-center p-2 m-3 bg-white" id="right">
+            <h1 class="flex-row col flex-grow-0 align-content-center py-5">
+		        Bitcoin Club at KSU
+            </h1>
+		    <p class="flex-row p-2 flex-grow-0 align-items-center text-center">We strive to promote currently emerging innovations related to the digital economy. The mindset of this organization as a whole is to gain knowledge and help build skillset to appreciate the digital economy technologies. We wish to share and promote digital economy solutions through collaborative and peer learning efforts. The mission of this organization is to help students understand and develop an appreciation for
+            <highlight>cryptocurrencies, cryptography, security, privacy,</highlight>  and  <highlight>the digital economy.</highlight>
             <br><br>
             <Icon data={faCog} spin/>
-            <small>We are currently working on updating the website meanwhile check out the About section!</small>
+            <small>We are currently working on updating the website meanwhile check out the About section!</small></p>
 		</div>
     </div>
 </div>
